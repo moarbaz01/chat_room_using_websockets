@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import io from "socket.io-client";
 import { useNavigate } from "react-router-dom";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://chat-room-using-websockets-server.onrender.com");
 
 function Home() {
   const [id, setId] = useState("");
@@ -19,9 +19,9 @@ function Home() {
       return;
     }
     if (message && receiver) {
-      if(receiver === id){
+      if (receiver === id) {
         alert("You can't send message to yourself");
-      }else{
+      } else {
         if (socketIds.includes(receiver)) {
           const data = {
             sender: id,
@@ -67,8 +67,8 @@ function Home() {
     });
 
     return () => {
-      socket.off('connect');
-    }
+      socket.off("connect");
+    };
   }, []);
 
   useEffect(() => {
