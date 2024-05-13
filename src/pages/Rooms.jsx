@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import { generateUsername } from "unique-username-generator";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://chat-room-using-websockets-server.onrender.com");
 const username = generateUsername();
 function Rooms() {
   const navigate = useNavigate();
