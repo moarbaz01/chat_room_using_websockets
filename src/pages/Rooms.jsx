@@ -31,7 +31,7 @@ function Rooms() {
 
   const handleSendMessage = (roomId) => {
     socket.emit("message_in_room", { room: room.name, username, message });
-    // alert("Message Sent");
+    setMessage("");
   };
 
   const handleJoinRoom = (roomId) => {
@@ -90,10 +90,9 @@ function Rooms() {
   }, [roomChat.length, typingData.length]);
 
   useEffect(() => {
-    setRoomChat([])
-    setRoomNotify([])
+    setRoomChat([]);
+    setRoomNotify([]);
   }, [username]);
-
 
   const handleChangeMessageAndShowTyping = (e) => {
     const data = { username, room: room.name };
